@@ -1,6 +1,6 @@
 {
   "name": "chalkdust",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "dependencies": {
     "agrc": "agrc-widgets#*",
     "ijit": "agrc-ijit#*",
