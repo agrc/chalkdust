@@ -9,7 +9,9 @@ module.exports = function(grunt) {
     var gruntFile = 'GruntFile.js';
     var jshintFiles = [jsFiles, gruntFile];
     var bumpFiles = [
-        'package.json'
+        'package.json',
+        'bower.json',
+        'src/app/package.json'
     ];
 
     // Project configuration.
@@ -52,17 +54,7 @@ module.exports = function(grunt) {
             uses_defaults: {}
         },
         dojo: {
-            prod: {
-                options: {
-                    // You can also specify options to be used in all your tasks
-                    profiles: ['profiles/prod.build.profile.js', 'profiles/build.profile.js'] // Profile for build
-                }
-            },
-            stage: {
-                options: {
-                    // You can also specify options to be used in all your tasks
-                    profiles: ['profiles/stage.build.profile.js', 'profiles/build.profile.js'] // Profile for build
-                }
+            dev: {
             },
             options: {
                 // You can also specify options to be used in all your tasks
@@ -70,7 +62,8 @@ module.exports = function(grunt) {
                 load: 'build', // Optional: Utility to bootstrap (Default: 'build')
                 releaseDir: '../dist',
                 require: 'src/app/run.js', // Optional: Module to require for the build (Default: nothing)
-                basePath: './src'
+                basePath: './src',
+                profile: 'profiles/build.profile.js'
             }
         },
         processhtml: {
@@ -131,7 +124,7 @@ module.exports = function(grunt) {
             options: {
                 files: bumpFiles,
                 commitFiles: bumpFiles,
-                pushTo: 'origin'
+                push: false
             }
         }
     });
@@ -155,18 +148,8 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean',
         'if-missing:esri_slurp:missing',
-        'dojo:prod',
+        'dojo:dev',
         'imagemin:dynamic',
-        'copy',
-        'processhtml:dist',
-        'compress'
-    ]);
-    grunt.registerTask('stage-build', [
-        'clean',
-        'if-missing:esri_slurp:missing',
-        'dojo:stage',
-        'imagemin:dynamic',
-        'copy',
         'processhtml:dist',
         'compress'
     ]);

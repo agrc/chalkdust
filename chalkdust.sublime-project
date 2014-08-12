@@ -1,25 +1,17 @@
 {
     "folders": [{
         "folder_exclude_patterns": [
-            "dist/agrc",
-            "dist/app",
-            "dist/ijit",
-            "dist/dojo",
-            "dist/dojox",
-            "dist/util",
-            "dist/dijit",
-            "dist/bootstrap",
-            "dist/esri",
+            "dist",
+            "deploy",
+            "node_modules",
+            ".grunt",
             "src/dojo",
             "src/dojox",
             "src/util",
             "src/dijit",
-            // "src/esri",
-            "node_modules",
-            ".grunt"
+            "src/esri"
         ],
         "file_exclude_patterns": [
-            "dist/index.html",
             "*.sublime-workspace"
         ],
         "path": "/"

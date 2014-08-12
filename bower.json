@@ -1,13 +1,14 @@
 {
   "name": "chalkdust",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "dependencies": {
     "agrc": "agrc-widgets#*",
+    "ijit": "agrc-ijit#*",
     "dojo": "1.9",
     "dojox": "1.9",
     "dijit": "1.9",
-    "ijit": "agrc-ijit#*",
-    "util": "dojo-util#1.9"
+    "util": "dojo-util#1.9",
+    "jquery": "2.1"
   },
   "devDependencies": {
     "matchers": "agrc-jasmine-matchers#~0.1",

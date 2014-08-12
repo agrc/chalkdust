@@ -18,6 +18,10 @@
             'esri',
             'ijit',
             {
+                name: 'jquery',
+                location: 'jquery/dist',
+                main: 'jquery'
+            },{
                 name: 'spin',
                 location: 'spinjs',
                 main: 'spin'
@@ -25,6 +29,8 @@
         ]
     };
     require(config, [
+        'jquery',
+
         'app/App',
 
         'dojo/_base/lang',
@@ -35,8 +41,9 @@
 
         'dojo/domReady!'
     ],
-
     function (
+        $,
+
         App,
 
         lang,
