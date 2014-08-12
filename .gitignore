@@ -1,36 +1,20 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
+*.pyc
+*.sublime-workspace
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must ends with two \r.
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
+.grunt/
+deploy/*.zip
+dist/
+node_modules/
+src/agrc/
+src/bootstrap/
+src/dijit/
+src/dojo/
+src/dojox/
+src/esri/
+src/favico.js/
+src/ijit/
+src/jasmine-favicon-reporter/
+src/jquery/
+src/spinjs
+src/stubmodule/
+src/util/

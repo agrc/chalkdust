@@ -1,0 +1,29 @@
+{
+  "name": "agrc-jasmine-matchers",
+  "version": "0.1.0",
+  "homepage": "https://github.com/agrc/agrc-jasmine-matchers",
+  "authors": [
+    "Scott Davis <stdavis@utah.gov>"
+  ],
+  "description": "A collection of agrc jasmine matchers.",
+  "main": "README.md",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "agrc",
+    "jasmine",
+    "matchers"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "dojo": "~1.9"
+  }
+}

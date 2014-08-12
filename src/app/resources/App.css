@@ -1,0 +1,61 @@
+@import '../../dijit/themes/claro/claro.css';
+@import '../../esri/css/esri.css';
+@import'../../agrc/resources/map/BaseMap.css';
+@import'../../agrc/resources/map/BaseMapSelector.css';
+
+body, html, .app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: #444;
+}
+.app .container-with-border {
+    border: 1px solid #b5bcc7;
+}
+/* TITLE PANE */
+.app .title-container {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    padding: 8px;
+}
+.app .title-container h1 {
+    font-family: Arial, sans-serif;
+    margin: 5px 0 0 5px;
+    font-size: 40px;
+    letter-spacing: -2px;
+}
+.app .title-container .version:hover {
+    text-decoration: underline !important;
+}
+.app .title-container>img {
+    position: absolute;
+    top: -3px;
+    right: 0;
+}
+
+/* CENTER (MAP) */
+.app .center-container {
+    position: absolute;
+    top: 75px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    overflow: hidden;
+}
+.app .center-container [data-dojo-attach-point='mapDiv'] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* GENERAL STUFF */
+/* remove orange outline in chrome */
+*:focus {
+    outline: none;
+}
