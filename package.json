@@ -15,7 +15,8 @@
     "grunt-dojo": "~0",
     "grunt-esri-slurp": "~0",
     "grunt-if-missing": "~1",
-    "grunt-processhtml": "~0"
+    "grunt-processhtml": "~0",
+    "grunt-ssh": "^0.11.2"
   },
   "scripts": {
     "test": "grunt travis --verbose"

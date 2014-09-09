@@ -12,7 +12,32 @@ module.exports = function(grunt) {
         'package.json',
         'bower.json',
         'src/app/package.json'
-    ];
+    ],
+    deployFiles = [
+        '**',
+        '!build-report.txt',
+        '!util/**',
+        '!jasmine-favicon-reporter/**',
+        '!**/*.uncompressed.js',
+        '!**/*consoleStripped.js',
+        '!**/*.min.*',
+        '!**/tests/**',
+        '!**/bootstrap/test-infra/**',
+        '!**/bootstrap/less/**'
+    ],
+    deployDir = 'wwwroot/chalkdust',
+    secrets;
+    try {
+        secrets = grunt.file.readJSON('secrets.json');
+    } catch (e) {
+        // swallow for build server
+        secrets = {
+            stageHost: '',
+            prodHost: '',
+            username: '',
+            password: ''
+        };
+    }
 
     // Project configuration.
     grunt.initConfig({
@@ -90,24 +115,28 @@ module.exports = function(grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'deploy/build.zip'
+                    archive: 'deploy/deploy.zip'
                 },
                 files: [{
-                    src: ['dist/**'],
-                    dest: '/'
+                    src: deployFiles,
+                    dest: './',
+                    cwd: 'dist/',
+                    expand: true
                 }]
             }
         },
         esri_slurp: {
             options: {
-                version: '3.9',
-                beautify: false
+                version: '3.9'
             },
             missing: {
                 dest: 'src/esri'
             }
         },
-        clean: ['dist'],
+        clean: {
+            build: ['dist'],
+            deploy: ['deploy']
+        },
         amdcheck: {
             dev: {
                 options: {
@@ -125,6 +154,50 @@ module.exports = function(grunt) {
                 files: bumpFiles,
                 commitFiles: bumpFiles,
                 push: false
+            }
+        },
+        secrets: secrets,
+        sftp: {
+            stage: {
+                files: {
+                    './': 'deploy/deploy.zip'
+                },
+                options: {
+                    host: '<%= secrets.stageHost %>'
+                }
+            },
+            prod: {
+                files: {
+                    './': 'deploy/deploy.zip'
+                },
+                options: {
+                    host: '<%= secrets.prodHost %>'
+                }
+            },
+            options: {
+                path: './' + deployDir + '/',
+                srcBasePath: 'deploy/',
+                username: '<%= secrets.username %>',
+                password: '<%= secrets.password %>',
+                showProgress: true
+            }
+        },
+        sshexec: {
+            options: {
+                username: '<%= secrets.username %>',
+                password: '<%= secrets.password %>'
+            },
+            stage: {
+                command: ['cd ' + deployDir, 'unzip -o deploy.zip', 'rm deploy.zip'].join(';'),
+                options: {
+                    host: '<%= secrets.stageHost %>'
+                }
+            },
+            prod: {
+                command: ['cd ' + deployDir, 'unzip -o deploy.zip', 'rm deploy.zip'].join(';'),
+                options: {
+                    host: '<%= secrets.prodHost %>'
+                }
             }
         }
     });
@@ -151,7 +224,12 @@ module.exports = function(grunt) {
         'dojo:dev',
         'imagemin:dynamic',
         'processhtml:dist',
-        'compress'
+        'compress:main'
+    ]);
+    grunt.registerTask('deploy', [
+        'clean:deploy',
+        'sftp:prod',
+        'sshexec:prod'
     ]);
     grunt.registerTask('travis', [
         'esri_slurp',
