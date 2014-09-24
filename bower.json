@@ -2,8 +2,7 @@
   "name": "chalkdust",
   "version": "1.0.0",
   "dependencies": {
-    "agrc": "agrc-widgets#*",
-    "ijit": "agrc-ijit#*",
+    "agrc": "agrc-widgets#2.7.0",
     "dojo": "1.9",
     "dojox": "1.9",
     "dijit": "1.9",
@@ -12,7 +11,7 @@
   },
   "devDependencies": {
     "matchers": "agrc-jasmine-matchers#~0.1",
-    "jasmine-favicon-reporter": "*",
+    "jasmine-favicon-reporter": null,
     "stubmodule": null
   }
 }

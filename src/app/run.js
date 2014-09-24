@@ -16,7 +16,6 @@
             'dojo',
             'dojox',
             'esri',
-            'ijit',
             {
                 name: 'jquery',
                 location: 'jquery/dist',
