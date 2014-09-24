@@ -19,9 +19,8 @@ define([
     'esri/graphic',
 
     'esri/geometry/Point',
-    'esri/geometry/Polyline',
 
-    'esri/symbols/SimpleLineSymbol'
+    'esri/symbols/SimpleMarkerSymbol'
 ], function(
     template,
 
@@ -43,9 +42,8 @@ define([
     Graphic,
 
     Point,
-    Polyline,
 
-    SimpleLineSymbol
+    SimpleMarkerSymbol
 ) {
     return declare([_WidgetBase, _TemplatedMixin], {
         templateString: template,
@@ -96,10 +94,15 @@ define([
                 queryObject = ioQuery.queryToObject(query);
 
             var center = new Point(dojo.fromJson(queryObject.center));
-            var line = new Polyline(dojo.fromJson(queryObject.redline));
+            var point = new Point(dojo.fromJson(queryObject.redline));
 
-            var sls = new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASH, new Color([255, 0, 0]), 3);
-            var graphic = new Graphic(line, sls);
+            var sls = new SimpleMarkerSymbol()
+                    .setStyle(SimpleMarkerSymbol.STYLE_CIRCLE)
+                    .setColor(new Color([255, 0, 0, 0.5]))
+                    .setOutline(null)
+                    .setSize('32');
+
+            var graphic = new Graphic(point, sls);
 
             this.map = new BaseMap(this.mapDiv, {
                 useDefaultBaseMap: false,
