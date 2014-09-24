@@ -1,6 +1,6 @@
 {
   "name": "chalkdust",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "devDependencies": {
     "grunt": "^0.4",
     "grunt-amdcheck": "^0",
