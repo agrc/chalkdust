@@ -6,6 +6,7 @@ node_modules/
 secrets.json
 src/agrc-jasmine-matchers/
 src/agrc/
+src/app/**/*.css
 src/bootstrap/
 src/components-jasmine/
 src/dgrid/

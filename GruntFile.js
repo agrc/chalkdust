@@ -1,5 +1,7 @@
 /* jshint camelcase:false */
 module.exports = function(grunt) {
+    require('load-grunt-tasks')(grunt);
+
     var jsFiles = 'src/app/**/*.js';
     var otherFiles = [
         'src/app/**/*.html',
@@ -15,15 +17,16 @@ module.exports = function(grunt) {
     ],
     deployFiles = [
         '**',
-        '!build-report.txt',
-        '!util/**',
-        '!jasmine-favicon-reporter/**',
         '!**/*.uncompressed.js',
         '!**/*consoleStripped.js',
-        '!**/*.min.*',
         '!**/tests/**',
-        '!**/bootstrap/test-infra/**',
-        '!**/bootstrap/less/**'
+        '!build-report.txt',
+        '!components-jasmine/**',
+        '!favico.js/**',
+        '!jasmine-favicon-reporter/**',
+        '!jasmine-jsreporter/**',
+        '!stubmodule/**',
+        '!util/**'
     ],
     deployDir = 'chalkdust',
     secrets;
@@ -175,8 +178,7 @@ module.exports = function(grunt) {
                 }
             },
             options: {
-                createDirectories: true,
-                path: './wwwroot' + deployDir + '/',
+                path: './wwwroot/' + deployDir + '/',
                 srcBasePath: 'deploy/',
                 showProgress: true
             }
@@ -199,6 +201,21 @@ module.exports = function(grunt) {
                 }
             }
         },
+        stylus: {
+            main: {
+                options: {
+                    compress: false,
+                    'resolve url': true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/',
+                    src: ['app/**/*.styl'],
+                    dest: 'src/',
+                    ext: '.css'
+                }]
+            }
+        },
         watch: {
             jshint: {
                 files: jshintFiles,
@@ -209,37 +226,37 @@ module.exports = function(grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            stylus: {
+                files: 'src/app/**/*.styl',
+                tasks: ['stylus']
             }
         }
     });
-
-    // Loading dependencies
-    for (var key in grunt.file.readJSON('package.json').devDependencies) {
-        if (key !== 'grunt' && key.indexOf('grunt') === 0) {
-            grunt.loadNpmTasks(key);
-        }
-    }
 
     // Default task.
     grunt.registerTask('default', [
         'jshint',
         'amdcheck:main',
         'jasmine:main:build',
+        'stylus',
         'connect',
         'watch'
     ]);
     grunt.registerTask('build-stage', [
         'jshint',
         'clean:build',
-        'dojo:stage',
         'newer:imagemin:main',
+        'stylus',
+        'dojo:stage',
         'processhtml:main'
     ]);
     grunt.registerTask('build-prod', [
         'jshint',
         'clean:build',
-        'dojo:prod',
         'newer:imagemin:main',
+        'stylus',
+        'dojo:prod',
         'processhtml:main'
     ]);
     grunt.registerTask('deploy-prod', [
