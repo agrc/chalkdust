@@ -25,17 +25,23 @@ module.exports = function(grunt) {
         '!**/bootstrap/test-infra/**',
         '!**/bootstrap/less/**'
     ],
-    deployDir = 'wwwroot/chalkdust',
+    deployDir = 'chalkdust',
     secrets;
     try {
         secrets = grunt.file.readJSON('secrets.json');
     } catch (e) {
         // swallow for build server
         secrets = {
-            stageHost: '',
-            prodHost: '',
-            username: '',
-            password: ''
+            stage: {
+                host: '',
+                username: '',
+                password: ''
+            },
+            prod: {
+                host: '',
+                username: '',
+                password: ''
+            }
         };
     }
 
@@ -94,7 +100,7 @@ module.exports = function(grunt) {
                 profile: 'profiles/build.profile.js'
             }
         },
-       imagemin: {
+        imagemin: {
             main: {
                 options: {
                     optimizationLevel: 3
@@ -143,7 +149,9 @@ module.exports = function(grunt) {
                     './': 'deploy/deploy.zip'
                 },
                 options: {
-                    host: '<%= secrets.stageHost %>'
+                    host: '<%= secrets.stage.host %>',
+                    username: '<%= secrets.stage.username %>',
+                    password: '<%= secrets.stage.password %>'
                 }
             },
             prod: {
@@ -151,32 +159,33 @@ module.exports = function(grunt) {
                     './': 'deploy/deploy.zip'
                 },
                 options: {
-                    host: '<%= secrets.prodHost %>'
+                    host: '<%= secrets.prod.host %>',
+                    username: '<%= secrets.prod.username %>',
+                    password: '<%= secrets.prod.password %>'
                 }
             },
             options: {
-                path: './' + deployDir + '/',
+                createDirectories: true,
+                path: './wwwroot' + deployDir + '/',
                 srcBasePath: 'deploy/',
-                username: '<%= secrets.username %>',
-                password: '<%= secrets.password %>',
                 showProgress: true
             }
         },
         sshexec: {
-            options: {
-                username: '<%= secrets.username %>',
-                password: '<%= secrets.password %>'
-            },
             stage: {
-                command: ['cd ' + deployDir, 'unzip -oq deploy.zip', 'rm deploy.zip'].join(';'),
+                command: ['cd wwwroot/' + deployDir, 'unzip -oq deploy.zip', 'rm deploy.zip'].join(';'),
                 options: {
-                    host: '<%= secrets.stageHost %>'
+                    host: '<%= secrets.stage.host %>',
+                    username: '<%= secrets.stage.username %>',
+                    password: '<%= secrets.stage.password %>'
                 }
             },
             prod: {
-                command: ['cd ' + deployDir, 'unzip -oq deploy.zip', 'rm deploy.zip'].join(';'),
+                command: ['cd wwwroot/' + deployDir, 'unzip -oq deploy.zip', 'rm deploy.zip'].join(';'),
                 options: {
-                    host: '<%= secrets.prodHost %>'
+                    host: '<%= secrets.prod.host %>',
+                    username: '<%= secrets.prod.username %>',
+                    password: '<%= secrets.prod.password %>'
                 }
             }
         },

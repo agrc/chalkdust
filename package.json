@@ -28,7 +28,8 @@
     "grunt-if-missing": "^1",
     "grunt-newer": "^1",
     "grunt-processhtml": "^0",
-    "grunt-ssh": "^0"
+    "grunt-ssh": "^0",
+    "uglify-js": "^2.6.1"
   },
   "scripts": {
     "test": "grunt travis --verbose"
