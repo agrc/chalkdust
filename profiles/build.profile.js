@@ -9,8 +9,8 @@ var profile = {
     action: 'release',
     cssOptimize: 'comments',
     mini: true,
-    optimize: 'closure',
-    layerOptimize: 'closure',
+    optimize: 'uglify',
+    layerOptimize: 'uglify',
     stripConsole: 'all',
     selectorEngine: 'acme',
     layers: {
@@ -49,5 +49,16 @@ var profile = {
     // this is to make sure that the widget templates get built into the layer file.
     userConfig: {
         packages: ['app', 'dijit', 'dojox', 'agrc', 'esri', 'layer-selector']
-    }
+    },
+    packages: [{
+        name: 'proj4',
+        resourceTags: {
+            copyOnly: function () {
+                return false;
+            },
+            amd: function () {
+                return true;
+            }
+        }
+    }]
 };
