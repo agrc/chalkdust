@@ -1,11 +1,12 @@
 define([
     'agrc/widgets/map/BaseMap',
 
+    'app/config',
+
     'dijit/_TemplatedMixin',
     'dijit/_WidgetBase',
 
     'dojo/io-query',
-    'dojo/on',
     'dojo/text!app/templates/App.html',
     'dojo/_base/array',
     'dojo/_base/Color',
@@ -24,11 +25,12 @@ define([
 ], function(
     BaseMap,
 
+    config,
+
     _TemplatedMixin,
     _WidgetBase,
 
     ioQuery,
-    on,
     template,
     array,
     Color,
@@ -139,7 +141,7 @@ define([
             this.childWidgets.push(
                 new BaseMapSelector({
                     map: this.map,
-                    quadWord: 'alfred-plaster-crystal-dexter',
+                    quadWord: config.quadWord,
                     baseLayers: ['Hybrid', 'Lite', 'Terrain', 'Topo', 'Color IR']
                 })
             );

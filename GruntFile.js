@@ -88,7 +88,17 @@ module.exports = function(grunt) {
             uses_mains: {}
         },
         dojo: {
-            main: {
+            prod: {
+                options: {
+                    // You can also specify options to be used in all your tasks
+                    profiles: ['profiles/prod.build.profile.js', 'profiles/build.profile.js'] // Profile for build
+                }
+            },
+            stage: {
+                options: {
+                    // You can also specify options to be used in all your tasks
+                    profiles: ['profiles/stage.build.profile.js', 'profiles/build.profile.js'] // Profile for build
+                }
             },
             options: {
                 // You can also specify options to be used in all your tasks
@@ -218,9 +228,17 @@ module.exports = function(grunt) {
         'connect',
         'watch'
     ]);
-    grunt.registerTask('build', [
+    grunt.registerTask('build-stage', [
+        'jshint',
         'clean:build',
-        'dojo:main',
+        'dojo:stage',
+        'newer:imagemin:main',
+        'processhtml:main'
+    ]);
+    grunt.registerTask('build-prod', [
+        'jshint',
+        'clean:build',
+        'dojo:prod',
         'newer:imagemin:main',
         'processhtml:main'
     ]);
