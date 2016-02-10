@@ -16,6 +16,7 @@
             'dojo',
             'dojox',
             'esri',
+            'layer-selector',
             {
                 name: 'jquery',
                 location: 'jquery/dist',

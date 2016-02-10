@@ -94,23 +94,7 @@ module.exports = function(grunt) {
                 profile: 'profiles/build.profile.js'
             }
         },
-        esri_slurp: {
-            options: {
-                version: '3.9'
-            },
-            dev: {
-                options: {
-                    beautify: true
-                },
-                dest: 'src/esri'
-            },
-            travis: {
-                options: {
-                    beautify: false
-                }
-            }
-        },
-           imagemin: {
+       imagemin: {
             main: {
                 options: {
                     optimizationLevel: 3
@@ -221,7 +205,6 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'jshint',
         'amdcheck:main',
-        'if-missing:esri_slurp:dev',
         'jasmine:main:build',
         'connect',
         'watch'
@@ -245,7 +228,6 @@ module.exports = function(grunt) {
         'sshexec:stage'
     ]);
     grunt.registerTask('travis', [
-        'esri_slurp:travis',
         'jshint',
         'connect',
         'jasmine:main'

@@ -1,49 +1,41 @@
 define([
-    'dojo/text!./templates/App.html',
+    'agrc/widgets/map/BaseMap',
 
+    'dijit/_TemplatedMixin',
+    'dijit/_WidgetBase',
+
+    'dojo/io-query',
+    'dojo/on',
+    'dojo/text!app/templates/App.html',
     'dojo/_base/array',
     'dojo/_base/Color',
     'dojo/_base/declare',
     'dojo/_base/json',
 
-    'dojo/io-query',
-
-    'dojo/on',
-
-    'dijit/_WidgetBase',
-    'dijit/_TemplatedMixin',
-
-    'agrc/widgets/map/BaseMap',
-    'agrc/widgets/map/BaseMapSelector',
-
-    'esri/graphic',
-
     'esri/geometry/Point',
+    'esri/graphic',
+    'esri/symbols/SimpleMarkerSymbol',
 
-    'esri/symbols/SimpleMarkerSymbol'
+    'layer-selector'
 ], function(
-    template,
+    BaseMap,
 
+    _TemplatedMixin,
+    _WidgetBase,
+
+    ioQuery,
+    on,
+    template,
     array,
     Color,
     declare,
     dojo,
 
-    ioQuery,
-
-    on,
-
-    _WidgetBase,
-    _TemplatedMixin,
-
-    BaseMap,
-    BaseMapSelector,
-
-    Graphic,
-
     Point,
+    Graphic,
+    SimpleMarkerSymbol,
 
-    SimpleMarkerSymbol
+    BaseMapSelector
 ) {
     return declare([_WidgetBase, _TemplatedMixin], {
         templateString: template,
@@ -118,8 +110,8 @@ define([
             this.childWidgets.push(
                 new BaseMapSelector({
                     map: this.map,
-                    id: 'claro',
-                    position: 'TR'
+                    quadWord: 'alabama-anvil-picnic-sunset', //'alfred-plaster-crystal-dexter',
+                    baseLayers: ['Hybrid', 'Lite', 'Terrain', 'Topo', 'Color IR']
                 })
             );
         }
