@@ -1,12 +1,21 @@
 Chalkdust
 =========
 
-A red line displayer for the agrc.ijit change requester
+A red line viewer for the [agrc/ijit/notify/ChangeRequest](https://github.com/agrc/agrc.ijit/blob/master/widgets/notify/ChangeRequest.js) widget.
 
-Handles requests like
+Pass the [viewer](http://mapserv.utah.gov/chalkdust) a query string and it will zoom and display it.
 
-````
-center={ "x": 388510.80938409339, "y": 4225617.7148177475, "spatialReference": { "wkid": 26912 } }
-&level=10
-&redline={ "paths": [ [ [ 388544.25058396906, 4224984.7206772445 ], [ 388501.25475555751, 4224984.7206772445 ], [ 388377.04458459083, 4224989.4979915125 ], [ 388348.38069898309, 4225085.0442768708 ], [ 388477.36818421772, 4225151.9266766226 ], [ 388764.0070402947, 4225233.1410191776 ], [ 388878.66258272552, 4225233.1410191776 ], [ 388912.10378260113, 4225175.8132479619 ], [ 388950.32229674474, 4225099.3762196749 ], [ 388950.32229674474, 4225032.4938199241 ], [ 388916.88109686907, 4224989.4979915125 ], [ 388859.55332565372, 4224989.4979915125 ], [ 388682.79269773955, 4224936.9475345649 ], [ 388668.46075493575, 4224932.1702202968 ] ] ], "spatialReference": { "wkid": 26912 } }
-````
+
+### Web mercator requests
+```js
+?center={"x":-12448472,"y":4969582,"spatialReference":{"wkid":3857}}
+&level=12
+&redline={"x":-12448472,"y":4969582,"spatialReference":{"wkid":3857}}
+```
+
+### UTM Zone 12 North NAD 83 requests
+```js
+?center={"x":429622.47822559363,"y":4326436.184249276,"spatialReference":{"wkid":26912}}
+&level=12
+&redline={"x":429191.325612959,"y":4326454.696342062,"spatialReference":{"wkid":26912}}
+```
