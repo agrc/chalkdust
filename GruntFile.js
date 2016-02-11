@@ -20,6 +20,7 @@ module.exports = function(grunt) {
         '!**/*.uncompressed.js',
         '!**/*consoleStripped.js',
         '!**/tests/**',
+        '!**/*.styl',
         '!build-report.txt',
         '!components-jasmine/**',
         '!favico.js/**',
