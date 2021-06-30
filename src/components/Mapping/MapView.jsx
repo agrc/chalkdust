@@ -51,23 +51,25 @@ const ReactMapView = () => {
 
     console.log('zooming to viewpoint');
 
-    whenTrueOnce(mapView.current, 'ready', () => {
-      console.log('view is ready, zooming');
+    if (redline) {
+      whenTrueOnce(mapView.current, 'ready', () => {
+        console.log('view is ready, zooming');
 
-      mapView.current.goTo(
-        new Viewpoint({
-          scale: 6000,
-          targetGeometry: redline,
-        }),
-        { duration: 1500, easing: 'ease-in-out' }
-      );
+        mapView.current.goTo(
+          new Viewpoint({
+            scale: 6000,
+            targetGeometry: redline,
+          }),
+          { duration: 1500, easing: 'ease-in-out' }
+        );
 
-      window.history.pushState({}, '', new URL(window.location.origin));
+        window.history.pushState({}, '', new URL(window.location.origin));
 
-      if (redline) {
-        mapView.current.graphics.add(new Graphic(redline, marker));
-      }
-    });
+        if (redline) {
+          mapView.current.graphics.add(new Graphic(redline, marker));
+        }
+      });
+    }
 
     return () => {
       mapView.current.destroy();
