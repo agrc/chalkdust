@@ -9,8 +9,6 @@ import { ProjectUtmToWgs } from './Projections';
 import { whenTrueOnce } from '@arcgis/core/core/watchUtils';
 import queryString from 'query-string';
 
-const zoom = (view, center, redline) => {};
-
 const ReactMapView = () => {
   const mapDiv = useRef(null);
   const webMap = useRef(null);

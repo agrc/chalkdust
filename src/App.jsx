@@ -12,6 +12,7 @@ const ErrorFallback = ({ error }) => {
     </div>
   );
 };
+
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
