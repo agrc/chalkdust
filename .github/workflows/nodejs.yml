@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: prod
-      url: https://chalkdust.utah.gov
+      url: https://chalkdust.ugrc.utah.gov
     if: github.ref == 'refs/heads/main'
 
     steps:
