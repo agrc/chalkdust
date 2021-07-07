@@ -1,0 +1,15 @@
+{
+  "name": "send-email",
+  "version": "1.0.0",
+  "description": "sendgrid wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev:function"
+  },
+  "author": "steveoh",
+  "license": "MIT",
+  "dependencies": {
+    "@sendgrid/client": "^7.4.3",
+    "yup": "^0.32.9"
+  }
+}
