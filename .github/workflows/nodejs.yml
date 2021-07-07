@@ -38,6 +38,8 @@ jobs:
         id: init
         run: terraform init
         working-directory: ./terraform/chalkdust
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.TERRAFORM_SERVICE_ACCOUNT }}
 
       - name: Terraform validate
         id: validate
