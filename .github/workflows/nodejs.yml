@@ -12,6 +12,8 @@ on:
 jobs:
   terraform-dev:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_OAUTH_ACCESS_TOKEN: ${{ secrets.TERRAFORM_SERVICE_ACCOUNT }}
     environment:
       name: dev
       url: https://chalkdust.dev.utah.gov
@@ -38,8 +40,6 @@ jobs:
         id: init
         run: terraform init
         working-directory: ./terraform/chalkdust
-        env:
-          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ secrets.TERRAFORM_SERVICE_ACCOUNT }}
 
       - name: Switch workspace
         run: terraform workspace select dev
