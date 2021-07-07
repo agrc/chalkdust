@@ -41,6 +41,10 @@ jobs:
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ secrets.TERRAFORM_SERVICE_ACCOUNT }}
 
+      - name: Switch workspace
+        run: terraform workspace select dev
+        working-directory: ./terraform/chalkdust
+
       - name: Terraform validate
         id: validate
         run: terraform validate -no-color
