@@ -1,3 +1,7 @@
+const client = require('@sendgrid/client');
+const yup = require('yup');
+const queryString = require('query-string');
+
 if (!['production', 'test'].includes(process.env.NODE_ENV)) {
   require('dotenv').config();
 }
@@ -5,10 +9,6 @@ if (!['production', 'test'].includes(process.env.NODE_ENV)) {
 if (process.env.NODE_ENV !== 'test') {
   client.setApiKey(process.env.SENDGRID_API_KEY);
 }
-
-const client = require('@sendgrid/client');
-const yup = require('yup');
-const queryString = require('query-string');
 
 const emails = [
   { id: 1, email: 'ugrc@utah.gov' },
