@@ -22,7 +22,7 @@ const emails = [
   { id: 12, email: 'gbunce@utah.gov' },
 ];
 
-exports.schema = yup.object().shape({
+const schema = yup.object().shape({
   email: yup.object().shape({
     fromId: yup.number().integer().required(),
     toIds: yup.array().of(yup.number().integer().positive()).required(),
@@ -43,7 +43,7 @@ exports.schema = yup.object().shape({
   }),
 });
 
-exports.formatLink = (link, options) => {
+const formatLink = (link, options) => {
   if (options.redline) {
     options.redline = JSON.stringify(options.redline);
     const stringify = queryString.stringify(options, { encode: false });
@@ -74,7 +74,7 @@ const sendMail = (options) => {
   return Promise.resolve([{ statusCode: 200 }]);
 };
 
-exports.sendgrid = (request, response) => {
+const sendgrid = (request, response) => {
   response.set('Access-Control-Allow-Origin', '*');
 
   if (request.method === 'OPTIONS') {
@@ -136,4 +136,10 @@ exports.sendgrid = (request, response) => {
 
     return response.status(202).json();
   });
+};
+
+module.exports = {
+  schema,
+  formatLink,
+  sendgrid,
 };
