@@ -2,8 +2,14 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
+if (process.env.NODE_ENV !== 'test') {
+  client.setApiKey(process.env.SENDGRID_API_KEY);
+}
+
 const client = require('@sendgrid/client');
 const yup = require('yup');
+const Mustache = require('mustache');
+const queryString = require('query-string');
 
 const emails = [
   { id: 1, email: 'ugrc@utah.gov' },
@@ -17,26 +23,38 @@ const emails = [
   { id: 12, email: 'gbunce@utah.gov' },
 ];
 
-const schema = yup.object().shape({
+exports.schema = yup.object().shape({
   email: yup.object().shape({
     fromId: yup.number().integer().required(),
     toIds: yup.array().of(yup.number().integer().positive()).required(),
   }),
   template: yup.object().shape({
+    templateId: yup.number().integer().default(-1),
     templateValues: yup.object().shape({
       application: yup.string().required(),
-      user: yup
+      user: yup.string().required().default('anonymous@coward.gov'),
+      basemap: yup
         .string()
-        .email()
-        .default(() => 'anonymous@coward.gov'),
-      basemap: yup.string().oneOf(['lite', 'topo', 'hybrid', 'address points', 'terrain', 'color-ir']).required(),
+        .lowercase()
+        .oneOf(['lite', 'topo', 'hybrid', 'address points', 'terrain', 'color-ir', 'unknown'])
+        .default('unknown'),
       description: yup.string().required(),
-      link: yup.string().url().required(),
+      link: yup.string(),
     }),
   }),
 });
 
-client.setApiKey(process.env.SENDGRID_API_KEY);
+exports.formatLink = (link, options) => {
+  if (options.redline) {
+    options.redline = JSON.stringify(options.redline);
+    const stringify = queryString.stringify(options, { encode: false });
+
+    const url = new URL(link);
+    return `${url.protocol}//${url.host}${url.pathname}?${stringify}`;
+  }
+
+  return link;
+};
 
 const sendMail = (options) => {
   var options = {
@@ -48,7 +66,8 @@ const sendMail = (options) => {
     },
   };
 
-  console.log(JSON.stringify(options, null, 2));
+  console.info('sending mail with options', JSON.stringify(options));
+
   if (process.env.NODE_ENV === 'production') {
     return client.request(options);
   }
@@ -58,30 +77,52 @@ const sendMail = (options) => {
 
 exports.sendgrid = (request, response) => {
   response.set('Access-Control-Allow-Origin', '*');
-  response.set('Access-Control-Allow-Methods', 'GET');
+
+  if (request.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    console.info('responding to cors request');
+
+    response.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    response.set('Access-Control-Allow-Headers', 'Content-Type');
+    response.set('Access-Control-Max-Age', '3600');
+
+    return response.status(204).send('');
+  } else if (request.method === 'GET') {
+    return response.status(204).send('');
+  }
 
   const data = request.body;
 
   if (request.headers['referrer']?.indexOf('.utah.gov') === -1 && process.env.NODE_ENV === 'production') {
+    console.warn('invalid header', JSON.stringify(request.headers['referrer']));
+
     return response.status(403).json();
   }
 
   if (!data || typeof data !== 'object') {
+    console.warn('invalid data', JSON.stringify(data));
+
     return response.status(400).json({
       message: 'Required data is missing!',
     });
   }
 
-  const valid = schema.cast(data);
+  let valid = false;
 
-  if (!valid) {
+  try {
+    valid = schema.validateSync(data);
+  } catch (error) {
+    console.error('invalid schema', error);
+
     return response.status(400).json({
-      message: 'Required data is missing!',
+      message: error.message,
     });
   }
 
   const to = emails.filter((item) => data.email.toIds.includes(item.id));
   const from = emails.filter((item) => data.email.fromId === item.id)[0];
+
+  valid.template.templateValues.link = formatLink(valid.template.templateValues.link, valid.template.templateValues);
 
   sendMail({
     from: { email: from.email },
@@ -92,7 +133,7 @@ exports.sendgrid = (request, response) => {
       },
     ],
   }).then(([result]) => {
-    console.log(result.statusCode);
+    console.info('email sent', result.statusCode);
 
     return response.status(202).json();
   });
