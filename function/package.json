@@ -12,5 +12,8 @@
     "@sendgrid/client": "^7.4.3",
     "query-string": "^7.0.1",
     "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0"
   }
 }
