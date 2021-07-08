@@ -4,12 +4,13 @@
   "description": "sendgrid wrapper",
   "main": "index.js",
   "scripts": {
-    "test": "dev:function"
+    "test": "ava"
   },
   "author": "steveoh",
   "license": "MIT",
   "dependencies": {
     "@sendgrid/client": "^7.4.3",
+    "query-string": "^7.0.1",
     "yup": "^0.32.9"
   }
 }
