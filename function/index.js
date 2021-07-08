@@ -8,7 +8,6 @@ if (process.env.NODE_ENV !== 'test') {
 
 const client = require('@sendgrid/client');
 const yup = require('yup');
-const Mustache = require('mustache');
 const queryString = require('query-string');
 
 const emails = [
