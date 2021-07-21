@@ -30,16 +30,22 @@ const ReactMapView = () => {
     }
 
     console.log('parsing query string');
-    let { redline } = queryString.parse(location.search);
+    let { redline: redlineString } = queryString.parse(location.search);
+    let redline;
 
-    if (redline) {
+    if (redlineString) {
       console.log('parsing redline point');
 
-      redline = JSON.parse(redline);
+      let redlineJson = JSON.parse(redlineString);
+
+      if (typeof redlineJson === 'string') {
+        redlineJson = JSON.parse(redlineJson);
+      }
+
       redline = new Point({
-        x: redline.x,
-        y: redline.y,
-        spatialReference: redline.spatialReference,
+        x: redlineJson.x,
+        y: redlineJson.y,
+        spatialReference: redlineJson.spatialReference,
       });
 
       if (redline.spatialReference.wkid === 26912) {
@@ -65,7 +71,7 @@ const ReactMapView = () => {
 
         window.history.pushState({}, '', new URL(window.location.origin));
 
-        if (redline) {
+        if (redlineString) {
           mapView.current.graphics.add(new Graphic(redline, marker));
         }
       });
@@ -77,7 +83,7 @@ const ReactMapView = () => {
     };
   }, []);
 
-  return <div ref={mapDiv} className="border-t border-gray-300 h-full w-full"></div>;
+  return <div ref={mapDiv} className="w-full h-full border-t border-gray-300"></div>;
 };
 
 export default ReactMapView;
