@@ -32,11 +32,7 @@ const schema = yup.object().shape({
     templateValues: yup.object().shape({
       application: yup.string().required(),
       user: yup.string().required().default('anonymous@coward.gov'),
-      basemap: yup
-        .string()
-        .lowercase()
-        .oneOf(['lite', 'topo', 'hybrid', 'address points', 'terrain', 'color-ir', 'unknown'])
-        .default('unknown'),
+      basemap: yup.string(),
       description: yup.string().required(),
       link: yup.string(),
     }),
