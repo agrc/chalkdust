@@ -41,7 +41,7 @@ const schema = yup.object().shape({
 
 const formatLink = (link, options) => {
   if (options.redline) {
-    options.redline = JSON.stringify(options.redline);
+    options.redline = options.redline;
     const stringify = queryString.stringify(options, { encode: false });
 
     const url = new URL(link);
