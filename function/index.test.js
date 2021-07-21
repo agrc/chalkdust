@@ -105,12 +105,12 @@ test('format link returns itself when no redline is provided', (t) => {
 });
 
 test('format link creates valid querystring', (t) => {
-  const link = 'https://chalkdust.dev.utah.gov/?redline={{redline}}';
+  const link = 'https://chalkdust.dev.utah.gov/';
   t.is('https://chalkdust.dev.utah.gov/?redline=1', formatLink(link, { redline: 1 }));
 });
 
 test('format link creates valid querystring for a geometry', (t) => {
-  const link = 'https://chalkdust.dev.utah.gov/?redline={{redline}}&center={{center}}&level={{level}}';
+  const link = 'https://chalkdust.dev.utah.gov/';
   t.is(
     'https://chalkdust.dev.utah.gov/?redline={"x":-12453111.347829578,"y":4977990.630760062,"spatialReference":{"wkid":3857}}',
     formatLink(link, { redline: { x: -12453111.347829578, y: 4977990.630760062, spatialReference: { wkid: 3857 } } })
