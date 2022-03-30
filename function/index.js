@@ -56,7 +56,7 @@ const sendMail = (options) => {
     method: 'post',
     url: '/v3/mail/send',
     body: {
-      template_id: 'd-be4d2631ac974a13a1e31e4598cf3aef',
+      template_id: 'd-8fbd1d64eae14d4eafcd914f63787fe2',
       ...options,
     },
   };
