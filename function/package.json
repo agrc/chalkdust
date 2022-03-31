@@ -9,9 +9,9 @@
   "author": "steveoh",
   "license": "MIT",
   "dependencies": {
-    "@sendgrid/client": "^7.4.3",
-    "query-string": "^7.0.1",
-    "yup": "^0.32.9"
+    "@sendgrid/client": "^7.6.2",
+    "query-string": "^7.1.1",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "ava": "^4.1.0"
