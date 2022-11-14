@@ -2,6 +2,7 @@
   "name": "chalkdust",
   "version": "1.0.0",
   "scripts": {
+    "start": "npm run dev",
     "dev": "vite",
     "dev:function": "nodemon --inspect=0.0.0.0 --watch function/index.js node_modules/@google-cloud/functions-framework --target=sendgrid",
     "build": "vite build",
