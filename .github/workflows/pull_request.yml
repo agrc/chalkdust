@@ -46,9 +46,9 @@ jobs:
       - name: 🚀 Deploy
         uses: agrc/firebase-website-deploy-composite-action@v1
         with:
-          identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
-          service-account-email: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
-          project-id: ${{ secrets.PROJECT_ID }}
           preview: yes
           build-command: npm run build -- --mode dev
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          project-id: ${{ secrets.PROJECT_ID }}
+          identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
+          service-account-email: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}

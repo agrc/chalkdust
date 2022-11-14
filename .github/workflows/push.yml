@@ -48,10 +48,11 @@ jobs:
       - name: 🚀 Deploy
         uses: agrc/firebase-website-deploy-composite-action@v1
         with:
+          build-command: npm run build -- --mode dev
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          project-id: ${{ secrets.PROJECT_ID }}
           identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
           service-account-email: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
-          project-id: ${{ secrets.PROJECT_ID }}
-          build-command: npm run build -- --mode dev
 
   deploy-prod:
     name: Deploy to production
@@ -66,13 +67,13 @@ jobs:
       - name: 🚀 Deploy
         uses: agrc/firebase-website-deploy-composite-action@v1
         with:
+          build-command: npm run build -- --mode production
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          project-id: ${{ secrets.PROJECT_ID }}
           identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
           service-account-email: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
-          project-id: ${{ secrets.PROJECT_ID }}
-          build-command: npm run build -- --mode production
           service-now-instance: ${{ secrets.SN_INSTANCE }}
           service-now-table: ${{ secrets.SN_TABLE }}
           service-now-system-id: ${{ secrets.SN_SYS_ID }}
           service-now-username: ${{ secrets.SN_USERNAME }}
           service-now-password: ${{ secrets.SN_PASSWORD }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
