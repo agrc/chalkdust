@@ -1,4 +1,5 @@
-import logo from './agrc_logo.jpg';
+import PropTypes from 'prop-types';
+import logo from './ugrc_logo.png';
 
 export default function Header({ title, version }) {
   return (
@@ -14,8 +15,12 @@ export default function Header({ title, version }) {
         >
           {version}
         </a>
-        <img src={logo} className="focus:ring-0 absolute right-0 top-1" alt="agrc logo" />
+        <img src={logo} className="focus:ring-0 absolute right-1 top-1" alt="utah geospatial resource center logo" />
       </h1>
     </div>
   );
 }
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  version: PropTypes.string.isRequired,
+};
