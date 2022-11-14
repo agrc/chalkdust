@@ -9,11 +9,11 @@
   "author": "steveoh",
   "license": "MIT",
   "dependencies": {
-    "@sendgrid/client": "^7.6.2",
+    "@sendgrid/client": "^7.7.0",
     "query-string": "^7.1.1",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "ava": "^4.1.0"
+    "ava": "^5.1.0"
   }
 }
