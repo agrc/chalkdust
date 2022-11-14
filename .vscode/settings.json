@@ -8,11 +8,15 @@
     "hashicorp",
     "noopener",
     "noreferrer",
+    "packagejson",
     "personalizations",
+    "reactfire",
     "sendgrid",
     "tailwindcss",
     "topo",
+    "ugrc",
     "vite",
     "wkid"
-  ]
+  ],
+  "editor.formatOnSave": true
 }
