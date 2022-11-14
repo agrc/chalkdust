@@ -1,6 +1,9 @@
+import { getAnalytics } from 'firebase/analytics';
+import PropTypes from 'prop-types';
 import { ErrorBoundary } from 'react-error-boundary';
-import MapView from './components/Mapping/MapView';
+import { AnalyticsProvider, useFirebaseApp } from 'reactfire';
 import Header from './components/Header';
+import MapView from './components/Mapping/MapView.jsx';
 
 const version = import.meta.env.PACKAGE_VERSION;
 
@@ -12,16 +15,24 @@ const ErrorFallback = ({ error }) => {
     </div>
   );
 };
+ErrorFallback.propTypes = {
+  error: PropTypes.object.isRequired,
+};
 
 function App() {
+  const app = useFirebaseApp();
+  const analytics = getAnalytics(app);
+
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className="w-screen h-screen">
-        <Header title="Chalkdust Redline Viewer" version={version ?? '1.0.0'} />
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <MapView />
-        </ErrorBoundary>
-      </div>
+      <AnalyticsProvider sdk={analytics}>
+        <div className="w-screen h-screen">
+          <Header title="Chalkdust Redline Viewer" version={version ?? '1.0.0'} />
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <MapView />
+          </ErrorBoundary>
+        </div>
+      </AnalyticsProvider>
     </ErrorBoundary>
   );
 }
