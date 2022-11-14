@@ -1,11 +1,28 @@
+import '@arcgis/core/assets/esri/themes/light/main.css';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { FirebaseAppProvider } from 'reactfire';
+import App from './App.jsx';
 import './styles/tailwind.css';
-import App from './App';
 
-ReactDOM.render(
+let firebaseConfig = {
+  apiKey: '',
+  authDomain: '',
+  projectId: '',
+  storageBucket: '',
+  messagingSenderId: '',
+  appId: '',
+  measurementId: '',
+};
+
+if (import.meta.env.VITE_FIREBASE_CONFIG) {
+  firebaseConfig = JSON.parse(import.meta.env.VITE_FIREBASE_CONFIG);
+}
+
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+      <App />
+    </FirebaseAppProvider>
+  </React.StrictMode>
 );
