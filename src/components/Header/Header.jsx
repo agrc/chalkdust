@@ -8,7 +8,7 @@ export default function Header({ title, version }) {
         <a
           className="hover:font-bold hover:text-blue-600 text-blue-400 text-xs font-normal align-bottom leading-tight tracking-tight -ml-5"
           style={{ verticalAlign: 'sub' }}
-          href="https://github.com/agrc/chalkdust/blob/main/CHANGELOG.md"
+          href={`https://github.com/agrc/chalkdust/releases/v${version}`}
           target="_blank"
           rel="noopener noreferrer"
         >
