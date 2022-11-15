@@ -46,7 +46,7 @@ jobs:
 
     steps:
       - name: 🚀 Deploy
-        uses: agrc/firebase-website-deploy-composite-action@dev
+        uses: agrc/firebase-website-deploy-composite-action@v1
         with:
           build-command: npm run build -- --mode dev
           repo-token: ${{ secrets.GITHUB_TOKEN }}
