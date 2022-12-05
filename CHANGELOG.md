@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/agrc/chalkdust/compare/v2.1.0...v2.1.1) (2022-12-05)
+
+
+### 🐛 Bug Fixes
+
+* november updates ([9e3f10f](https://github.com/agrc/chalkdust/commit/9e3f10fa80c71238f05d054acc817a213f1726dc))
+
 ## 2.1.0 (2022-11-15)
 
 
