@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "sendgrid wrapper",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "ava"
   },

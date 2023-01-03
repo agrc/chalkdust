@@ -1,5 +1,5 @@
-const test = require('ava');
-const { formatLink, schema } = require('./index.js');
+import test from 'ava';
+import { formatLink, schema } from './index.js';
 
 test('address point editor schema with point', (t) => {
   const data = {

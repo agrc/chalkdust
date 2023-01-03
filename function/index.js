@@ -1,6 +1,6 @@
-const client = require('@sendgrid/client');
-const yup = require('yup');
-const queryString = require('query-string');
+import client from '@sendgrid/client';
+import queryString from 'query-string';
+import * as yup from 'yup';
 
 if (!['production', 'test'].includes(process.env.NODE_ENV)) {
   require('dotenv').config();
@@ -22,7 +22,7 @@ const emails = [
   { id: 12, email: 'gbunce@utah.gov' },
 ];
 
-const schema = yup.object().shape({
+export const schema = yup.object().shape({
   email: yup.object().shape({
     fromId: yup.number().integer().required(),
     toIds: yup.array().of(yup.number().integer().positive()).required(),
@@ -39,7 +39,7 @@ const schema = yup.object().shape({
   }),
 });
 
-const formatLink = (link, options) => {
+export const formatLink = (link, options) => {
   if (options.redline) {
     options.redline = JSON.stringify(options.redline);
     const stringify = queryString.stringify(options, { encode: false });
@@ -52,7 +52,7 @@ const formatLink = (link, options) => {
 };
 
 const sendMail = (options) => {
-  var options = {
+  const template = {
     method: 'post',
     url: '/v3/mail/send',
     body: {
@@ -61,16 +61,16 @@ const sendMail = (options) => {
     },
   };
 
-  console.info('sending mail with options', JSON.stringify(options));
+  console.info('sending mail with options', JSON.stringify(template));
 
   if (process.env.NODE_ENV === 'production') {
-    return client.request(options);
+    return client.request(template);
   }
 
   return Promise.resolve([{ statusCode: 200 }]);
 };
 
-const sendgrid = (request, response) => {
+export const sendgrid = (request, response) => {
   response.set('Access-Control-Allow-Origin', '*');
 
   if (request.method === 'OPTIONS') {
@@ -132,10 +132,4 @@ const sendgrid = (request, response) => {
 
     return response.status(202).json();
   });
-};
-
-module.exports = {
-  schema,
-  formatLink,
-  sendgrid,
 };
