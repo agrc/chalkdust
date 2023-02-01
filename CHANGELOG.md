@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.3-0](https://github.com/agrc/chalkdust/compare/v2.1.2...v2.1.3-0) (2023-02-01)
+
+
+### 🐛 Bug Fixes
+
+* february dependency updates ([6d2402a](https://github.com/agrc/chalkdust/commit/6d2402aec33d937677c65300915a1af019b75027))
+
 ## [2.1.2](https://github.com/agrc/chalkdust/compare/v2.1.1...v2.1.2) (2023-01-03)
 
 
