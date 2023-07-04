@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.5](https://github.com/agrc/chalkdust/compare/v2.1.4...v2.1.5) (2023-07-04)
+
+
+### 🐛 Bug Fixes
+
+* Q3 Dependency Bumps 🌲 ([0ce3911](https://github.com/agrc/chalkdust/commit/0ce391122dc25046761ca43242c232e60c6b8acf))
+
 ## [2.1.4](https://github.com/agrc/chalkdust/compare/v2.1.3...v2.1.4) (2023-04-04)
 
 
