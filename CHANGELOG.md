@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.6](https://github.com/agrc/chalkdust/compare/v2.1.5...v2.1.6) (2023-09-13)
+
+
+### 🐛 Bug Fixes
+
+* replace erik with nathan ([e82fd86](https://github.com/agrc/chalkdust/commit/e82fd863c542b61e68074db3d76ed8467b0f89c3)), closes [#83](https://github.com/agrc/chalkdust/issues/83)
+
 ## [2.1.5](https://github.com/agrc/chalkdust/compare/v2.1.4...v2.1.5) (2023-07-04)
 
 
