@@ -5,34 +5,18 @@ updates:
     schedule:
       interval: monthly
       groups:
-        safe-production-dependencies:
-          dependency-type: 'production'
+        safe-app-dependencies:
           update-types: ['minor', 'patch']
-        safe-development-dependencies:
-          dependency-type: 'development'
-          update-types: ['minor', 'patch']
-        major-production-dependencies:
-          dependency-type: 'production'
-          update-types: ['major']
-        major-development-dependencies:
-          dependency-type: 'development'
+        major-app-dependencies:
           update-types: ['major']
   - package-ecosystem: npm
     directory: /function
     schedule:
       interval: monthly
       groups:
-        safe-production-dependencies:
-          dependency-type: 'production'
+        safe-function-dependencies:
           update-types: ['minor', 'patch']
-        safe-development-dependencies:
-          dependency-type: 'development'
-          update-types: ['minor', 'patch']
-        major-production-dependencies:
-          dependency-type: 'production'
-          update-types: ['major']
-        major-development-dependencies:
-          dependency-type: 'development'
+        major-function-dependencies:
           update-types: ['major']
   - package-ecosystem: github-actions
     directory: /
