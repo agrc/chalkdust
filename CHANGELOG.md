@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.7](https://github.com/agrc/chalkdust/compare/v2.1.6...v2.1.7) (2023-10-05)
+
+
+### 🌲 Dependencies
+
+* q4 action dependency updates ([cb35953](https://github.com/agrc/chalkdust/commit/cb359536f95ef0eb974fc1c16c3d259a0221dee7))
+* q4 npm dependency bump ([32a7574](https://github.com/agrc/chalkdust/commit/32a7574e0f18831217ad44a7237ec5aad362ab0c))
+
 ## [2.1.6](https://github.com/agrc/chalkdust/compare/v2.1.5...v2.1.6) (2023-09-13)
 
 
