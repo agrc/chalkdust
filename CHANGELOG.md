@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.8](https://github.com/agrc/chalkdust/compare/v2.1.7...v2.1.8) (2023-10-12)
+
+
+### 🌲 Dependencies
+
+* **dev:** bump the safe-app-dependencies group with 1 update ([#102](https://github.com/agrc/chalkdust/issues/102)) ([07971bf](https://github.com/agrc/chalkdust/commit/07971bfa005e0937d0cbf457286351cee954b15a))
+
+
+### 📖 Documentation Improvements
+
+* create a readme ([319db57](https://github.com/agrc/chalkdust/commit/319db572c0ada606d1d3180cf75605715bfadcfa))
+
 ## [2.1.7](https://github.com/agrc/chalkdust/compare/v2.1.6...v2.1.7) (2023-10-05)
 
 
