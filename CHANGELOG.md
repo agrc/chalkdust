@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.9-1](https://github.com/agrc/chalkdust/compare/v2.1.9-0...v2.1.9-1) (2023-10-16)
+
+
+### 🐛 Bug Fixes
+
+* add next node lts runtime ([b9999a5](https://github.com/agrc/chalkdust/commit/b9999a538c02c34b96d08fc016083f3435673994))
+
 ## [2.1.9-0](https://github.com/agrc/chalkdust/compare/v2.1.8...v2.1.9-0) (2023-10-16)
 
 
