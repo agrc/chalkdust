@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.9](https://github.com/agrc/chalkdust/compare/v2.1.8...v2.1.9) (2023-10-16)
+
+
+### 🐛 Bug Fixes
+
+* deploy the function with ci ([b2dcba2](https://github.com/agrc/chalkdust/commit/b2dcba2ec508de86319116cc649117d8cb922d92))
+
+
+### 🌲 Dependencies
+
+* **dev:** bump @babel/traverse from 7.23.0 to 7.23.2 ([6bbb673](https://github.com/agrc/chalkdust/commit/6bbb673f58bc57bfe4923eb5c736105467f70f82))
+
 ## [2.1.9-2](https://github.com/agrc/chalkdust/compare/v2.1.8...v2.1.9-2) (2023-10-16)
 
 
