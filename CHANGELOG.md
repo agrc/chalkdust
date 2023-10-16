@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.9-0](https://github.com/agrc/chalkdust/compare/v2.1.8...v2.1.9-0) (2023-10-16)
+
+
+### 🐛 Bug Fixes
+
+* add functions to firebase.json ([8aa9455](https://github.com/agrc/chalkdust/commit/8aa94550f93b826b0f5c6cf22c77dae6103ebcde)), closes [#104](https://github.com/agrc/chalkdust/issues/104)
+
 ## [2.1.8](https://github.com/agrc/chalkdust/compare/v2.1.7...v2.1.8) (2023-10-12)
 
 
