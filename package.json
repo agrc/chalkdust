@@ -8,8 +8,7 @@
     "build": "vite build",
     "format": "prettier --write src --ignore-path ./.gitignore",
     "lint": "NODE_ENV=development eslint --ext .jsx src",
-    "serve": "vite preview",
-    "release": "standard-version"
+    "serve": "vite preview"
   },
   "dependencies": {
     "@arcgis/core": "^4.27.6",
