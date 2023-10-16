@@ -1,6 +1,6 @@
 {
   "name": "chalkdust",
-  "version": "2.1.9-1",
+  "version": "2.1.9-2",
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
