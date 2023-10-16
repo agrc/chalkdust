@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.9-2](https://github.com/agrc/chalkdust/compare/v2.1.8...v2.1.9-2) (2023-10-16)
+
+
+### 🐛 Bug Fixes
+
+* deploy the function with ci ([1d185d6](https://github.com/agrc/chalkdust/commit/1d185d6e5761a8da27c83bee6d008d50e7b0f728))
+
 ## [2.1.9-1](https://github.com/agrc/chalkdust/compare/v2.1.9-0...v2.1.9-1) (2023-10-16)
 
 
