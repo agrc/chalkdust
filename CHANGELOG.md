@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.10-1](https://github.com/agrc/chalkdust/compare/v2.1.10-0...v2.1.10-1) (2023-10-17)
+
+
+### 🐛 Bug Fixes
+
+* add service account with secret access ([67e8332](https://github.com/agrc/chalkdust/commit/67e833231d530c14bf23937b3c0df0f8fbe14d4d))
+
 ## [2.1.10-0](https://github.com/agrc/chalkdust/compare/v2.1.9...v2.1.10-0) (2023-10-17)
 
 
