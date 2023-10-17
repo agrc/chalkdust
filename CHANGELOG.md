@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.10-0](https://github.com/agrc/chalkdust/compare/v2.1.9...v2.1.10-0) (2023-10-17)
+
+
+### 🐛 Bug Fixes
+
+* add missing function secrets ([2de6a46](https://github.com/agrc/chalkdust/commit/2de6a468eedbea9673e4f5e4634aa3129986f252))
+
 ## [2.1.9](https://github.com/agrc/chalkdust/compare/v2.1.8...v2.1.9) (2023-10-16)
 
 
