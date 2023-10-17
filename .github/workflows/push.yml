@@ -66,6 +66,7 @@ jobs:
           min_instances: 0
           memory_mb: 128
           secret_environment_variables: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account_email: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
 
   deploy-prod:
     name: Deploy to production
@@ -103,3 +104,4 @@ jobs:
           min_instances: 0
           memory_mb: 128
           secret_environment_variables: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account_email: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
