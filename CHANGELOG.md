@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.1.11](https://github.com/agrc/chalkdust/compare/v2.1.10...v2.1.11) (2024-04-03)
+
+
+### 🌲 Dependencies
+
+* bump the safe-app-dependencies group with 9 updates ([86cac9f](https://github.com/agrc/chalkdust/commit/86cac9f058d627df9ad9d2f74e703f8a3b7346a9))
+* bump the safe-function-dependencies group ([3a2e462](https://github.com/agrc/chalkdust/commit/3a2e462db3ebfdadccde7ff2f7a9941b3a6c5250))
+* FY24 Q4 dependency updates ([6045312](https://github.com/agrc/chalkdust/commit/60453125e3234378676e375f2899fca40a1b1541))
+
 ## [2.1.11-0](https://github.com/agrc/chalkdust/compare/v2.1.10...v2.1.11-0) (2024-04-03)
 
 
