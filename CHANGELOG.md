@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.12](https://github.com/agrc/chalkdust/compare/v2.1.11...v2.1.12) (2024-04-03)
+
+
+### 🌲 Dependencies
+
+* audit fix ([d2ba136](https://github.com/agrc/chalkdust/commit/d2ba1367cfc91d00a0528e8c414ec07afacb14aa))
+* npm audit fix ([dfcbdde](https://github.com/agrc/chalkdust/commit/dfcbdde0ac12c0b52dab37299f8cfb6ae036e3ec))
+
 ## [2.1.11](https://github.com/agrc/chalkdust/compare/v2.1.10...v2.1.11) (2024-04-03)
 
 
