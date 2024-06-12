@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.1.13-0](https://github.com/agrc/chalkdust/compare/v2.1.12...v2.1.13-0) (2024-06-12)
+
+
+### 🌲 Dependencies
+
+* bump the safe-app-dependencies group across 1 directory with 12 updates ([dd678de](https://github.com/agrc/chalkdust/commit/dd678ded0761937e91e71e55a96f22287a84fbcc))
+* **dev:** bump ava in /function in the safe-function-dependencies group ([fe9bc95](https://github.com/agrc/chalkdust/commit/fe9bc95c1c95c6b9426d45456fd4b004a0009c7e))
+* q4 package updates ([9be10e8](https://github.com/agrc/chalkdust/commit/9be10e8b7b13720082d344e419acbb3cee9168a1))
+
 ## [2.1.12](https://github.com/agrc/chalkdust/compare/v2.1.11...v2.1.12) (2024-04-03)
 
 
