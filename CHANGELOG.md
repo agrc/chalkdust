@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.14](https://github.com/agrc/chalkdust/compare/v2.1.13...v2.1.14) (2024-07-08)
+
+
+### Bug Fixes
+
+* downgrade to continue with v1 functions ([53415fe](https://github.com/agrc/chalkdust/commit/53415fe60fbe35ff05499dfeff7a7fbb053398c9))
+
 ## [2.1.13](https://github.com/agrc/chalkdust/compare/v2.1.12...v2.1.13) (2024-07-08)
 
 
