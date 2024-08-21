@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.15](https://github.com/agrc/chalkdust/compare/v2.1.14...v2.1.15) (2024-08-21)
+
+
+### Dependencies
+
+* bump axios from 1.6.8 to 1.7.4 ([bfb934d](https://github.com/agrc/chalkdust/commit/bfb934d9ab73d0cbd270f24fdb12173e46d9e067))
+* bump axios from 1.6.8 to 1.7.4 in /function ([66ba145](https://github.com/agrc/chalkdust/commit/66ba14578b4dc17914237a057ecdf8713b1e4cf5))
+* bump query-string ([b3c2e35](https://github.com/agrc/chalkdust/commit/b3c2e35b6c21a4a344be33b9e06771251741a38a))
+* bump the safe-app-dependencies group with 12 updates ([9a87fe7](https://github.com/agrc/chalkdust/commit/9a87fe7df634ddd957c3d5f8aa5767d8638f6a30))
+
 ## [2.1.14](https://github.com/agrc/chalkdust/compare/v2.1.13...v2.1.14) (2024-07-08)
 
 
