@@ -15,7 +15,7 @@ const emails = [
   { id: 2, email: 'noreply@utah.gov' },
   { id: 3, email: 'sgourley@utah.gov' },
   { id: 4, email: 'stdavis@utah.gov' },
-  { id: 5, email: 'nathankota@utah.gov' },
+  { id: 5, email: 'lault@utah.gov' },
   { id: 6, email: 'sfernandez@utah.gov' },
   { id: 7, email: 'zbeck@utah.gov' },
   { id: 8, email: 'agrc@utah.gov' },
