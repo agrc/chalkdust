@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.17-0](https://github.com/agrc/chalkdust/compare/v2.1.15...v2.1.17-0) (2024-10-02)
+
+
+### Bug Fixes
+
+* migrate service to cloud run function ([56e8889](https://github.com/agrc/chalkdust/commit/56e8889182eb40cd32a409c229034f12a3d253dd))
+
+
+### Dependencies
+
+* update packages ([7283076](https://github.com/agrc/chalkdust/commit/7283076239482baecab220684cd390da82d15305))
+
 ## [2.1.15](https://github.com/agrc/chalkdust/compare/v2.1.14...v2.1.15) (2024-08-21)
 
 
