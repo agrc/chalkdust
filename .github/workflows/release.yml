@@ -10,17 +10,21 @@ on:
         type: environment
         required: true
 
+permissions:
+  id-token: write
+  deployments: write
+
 jobs:
-  deploy-dev:
-    name: Deploy to staging
+  deploy-dev-website:
+    name: Deploy staging website
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: https://atlas.dev.utah.gov
+      url: https://chalkdust.dev.utah.gov
     if: github.event.release.prerelease == true || inputs.environment == 'dev'
 
     steps:
-      - name: 🚀 Deploy
+      - name: 🚀 Deploy website
         uses: agrc/firebase-website-deploy-composite-action@v1
         with:
           identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
@@ -30,19 +34,52 @@ jobs:
         env:
           VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
-  deploy-prod:
-    name: Deploy to production
+  deploy-dev-service:
+    name: Deploy staging service
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      deployments: write
+    environment:
+      name: dev
+    if: github.event.release.prerelease == true || inputs.environment == 'dev'
+
+    steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: 🗝️ Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          access_token_scopes: 'email, openid, https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase'
+          workload_identity_provider: ${{ secrets.IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+          create_credentials_file: true
+      - name: 🚀 Deploy service
+        uses: google-github-actions/deploy-cloud-functions@v3
+        timeout-minutes: 10
+        with:
+          name: send-email-service
+          runtime: nodejs20
+          source_dir: function
+          entry_point: sendgrid
+          service_timeout: 30s
+          max_instance_count: 2
+          min_instance_count: 0
+          memory: 128Mi
+          secrets: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
+
+  deploy-prod-website:
+    name: Deploy production wesbite
+    runs-on: ubuntu-latest
     environment:
       name: prod
       url: https://chalkdust.ugrc.utah.gov
     if: github.event.release.prerelease == false || inputs.environment == 'prod'
 
     steps:
-      - name: 🚀 Deploy
+      - name: 🚀 Deploy website
         uses: agrc/firebase-website-deploy-composite-action@v1
         with:
           build-command: npm run build -- --mode production
@@ -58,16 +95,38 @@ jobs:
         env:
           VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
-      - name: 🚀 Deploy Cloud Function
-        uses: google-github-actions/deploy-cloud-functions@v2
+  deploy-prod-service:
+    name: Deploy production service
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+      url: https://chalkdust.ugrc.utah.gov
+    if: github.event.release.prerelease == false || inputs.environment == 'prod'
+
+    steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+      - name: 🗝️ Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          access_token_scopes: 'email, openid, https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase'
+          workload_identity_provider: ${{ secrets.IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+          create_credentials_file: true
+      - name: 🚀 Deploy service
+        uses: google-github-actions/deploy-cloud-functions@v3
+        timeout-minutes: 10
         with:
           name: send-email-service
           runtime: nodejs20
           source_dir: function
           entry_point: sendgrid
-          timeout: 10
-          max_instances: 2
-          min_instances: 0
-          memory_mb: 128
-          secret_environment_variables: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
-          service_account_email: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
+          service_timeout: 30s
+          max_instance_count: 2
+          min_instance_count: 0
+          memory: 128Mi
+          secrets: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
