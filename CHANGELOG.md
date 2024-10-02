@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.17-6](https://github.com/agrc/chalkdust/compare/v2.1.16...v2.1.17-6) (2024-10-02)
+
+
+### Bug Fixes
+
+* correct ci parameter inputs ([92b952e](https://github.com/agrc/chalkdust/commit/92b952e48a41db2080ddc37263f16a552b210b10))
+* correct ci permissions for dev and prod deployments ([489a397](https://github.com/agrc/chalkdust/commit/489a397ee0f4d2b11bb0e71258195f73b8849dc3))
+* migrate service to cloud run function ([1e33221](https://github.com/agrc/chalkdust/commit/1e33221da464fee080f2ca29c2aa123e27b93325))
+* split website and service to be parallel and correct memory syntax ([d018ca5](https://github.com/agrc/chalkdust/commit/d018ca5ea416c8b631b17d0296ea55ca4538fe7a))
+* update ci to checkout and authenticate removing atlas references ([29e20fb](https://github.com/agrc/chalkdust/commit/29e20fb98f351234f3ed48d6f5d537e644af301a))
+* update ci to publish function in dev ([54bbbed](https://github.com/agrc/chalkdust/commit/54bbbed9f061d7222c6e36d3229f090e08c88070))
+
 ## [2.1.17-5](https://github.com/agrc/chalkdust/compare/v2.1.17-4...v2.1.17-5) (2024-10-02)
 
 
