@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.18](https://github.com/agrc/chalkdust/compare/v2.1.17...v2.1.18) (2024-10-02)
+
+
+### Bug Fixes
+
+* replace nathan with laura ([81509be](https://github.com/agrc/chalkdust/commit/81509bedb659bf5aaf3aa59b6238b0d915550a38))
+
 ## [2.1.17](https://github.com/agrc/chalkdust/compare/v2.1.16...v2.1.17) (2024-10-02)
 
 
