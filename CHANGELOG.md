@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.16](https://github.com/agrc/chalkdust/compare/v2.1.15...v2.1.16) (2024-10-02)
+
+
+### Dependencies
+
+* update packages ([c70153c](https://github.com/agrc/chalkdust/commit/c70153cd24466f2be7a5cf7f2a931344933f5a8a))
+
 ## [2.1.15](https://github.com/agrc/chalkdust/compare/v2.1.14...v2.1.15) (2024-08-21)
 
 
