@@ -16,11 +16,11 @@ permissions:
 
 jobs:
   deploy-dev-website:
-    name: Deploy website
+    name: Deploy staging website
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: https://atlas.dev.utah.gov
+      url: https://chalkdust.dev.utah.gov
     if: github.event.release.prerelease == true || inputs.environment == 'dev'
 
     steps:
@@ -35,14 +35,26 @@ jobs:
           VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
   deploy-dev-service:
-    name: Deploy service
+    name: Deploy staging service
     runs-on: ubuntu-latest
     environment:
       name: dev
-      url: https://atlas.dev.utah.gov
     if: github.event.release.prerelease == true || inputs.environment == 'dev'
 
     steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: 🗝️ Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          access_token_scopes: 'email, openid, https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase'
+          workload_identity_provider: ${{ inputs.identity-provider }}
+          service_account: ${{ inputs.service-account-email }}
+          create_credentials_file: true
       - name: 🚀 Deploy service
         uses: google-github-actions/deploy-cloud-functions@v3
         timeout-minutes: 10
@@ -59,7 +71,7 @@ jobs:
           service_account: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
 
   deploy-prod-website:
-    name: Deploy wesbite
+    name: Deploy production wesbite
     runs-on: ubuntu-latest
     environment:
       name: prod
@@ -84,7 +96,7 @@ jobs:
           VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
   deploy-prod-service:
-    name: Deploy to production
+    name: Deploy production service
     runs-on: ubuntu-latest
     environment:
       name: prod
@@ -92,6 +104,18 @@ jobs:
     if: github.event.release.prerelease == false || inputs.environment == 'prod'
 
     steps:
+      - name: ⬇️ Set up code
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+      - name: 🗝️ Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          access_token_scopes: 'email, openid, https://www.googleapis.com/auth/cloud-platform, https://www.googleapis.com/auth/firebase'
+          workload_identity_provider: ${{ inputs.identity-provider }}
+          service_account: ${{ inputs.service-account-email }}
+          create_credentials_file: true
       - name: 🚀 Deploy service
         uses: google-github-actions/deploy-cloud-functions@v3
         timeout-minutes: 10
