@@ -10,6 +10,10 @@ on:
         type: environment
         required: true
 
+permissions:
+  id-token: write
+  deployments: write
+
 jobs:
   deploy-dev:
     name: Deploy to staging
@@ -33,9 +37,6 @@ jobs:
   deploy-prod:
     name: Deploy to production
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      deployments: write
     environment:
       name: prod
       url: https://chalkdust.ugrc.utah.gov
