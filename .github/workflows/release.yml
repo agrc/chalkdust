@@ -34,6 +34,21 @@ jobs:
         env:
           VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
+      - name: 🚀 Deploy Cloud Function
+        uses: google-github-actions/deploy-cloud-functions@v3
+        timeout-minutes: 10
+        with:
+          name: send-email-service
+          runtime: nodejs20
+          source_dir: function
+          entry_point: sendgrid
+          service_timeout: 30s
+          max_instance_count: 2
+          min_instance_count: 0
+          memory: 128Mb
+          secrets: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
+
   deploy-prod:
     name: Deploy to production
     runs-on: ubuntu-latest
