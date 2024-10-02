@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.17-4](https://github.com/agrc/chalkdust/compare/v2.1.17-3...v2.1.17-4) (2024-10-02)
+
+
+### Bug Fixes
+
+* update ci to checkout and authenticate removing atlas references ([7dbf9bb](https://github.com/agrc/chalkdust/commit/7dbf9bb708d407b713696ab91955cfea2d3d1fed))
+
 ## [2.1.17-3](https://github.com/agrc/chalkdust/compare/v2.1.17-2...v2.1.17-3) (2024-10-02)
 
 
