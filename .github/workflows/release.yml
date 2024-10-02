@@ -1,0 +1,73 @@
+name: Release Events
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+
+jobs:
+  deploy-dev:
+    name: Deploy to staging
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+      url: https://atlas.dev.utah.gov
+    if: github.event.release.prerelease == true || inputs.environment == 'dev'
+
+    steps:
+      - name: 🚀 Deploy
+        uses: agrc/firebase-website-deploy-composite-action@v1
+        with:
+          identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
+          service-account-email: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+          project-id: ${{ secrets.PROJECT_ID }}
+          build-command: npm run build -- --mode dev
+        env:
+          VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+
+  deploy-prod:
+    name: Deploy to production
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      deployments: write
+    environment:
+      name: prod
+      url: https://chalkdust.ugrc.utah.gov
+    if: github.event.release.prerelease == false || inputs.environment == 'prod'
+
+    steps:
+      - name: 🚀 Deploy
+        uses: agrc/firebase-website-deploy-composite-action@v1
+        with:
+          build-command: npm run build -- --mode production
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          project-id: ${{ secrets.PROJECT_ID }}
+          identity-provider: ${{ secrets.IDENTITY_PROVIDER }}
+          service-account-email: ${{ secrets.SERVICE_ACCOUNT_EMAIL }}
+          service-now-instance: ${{ secrets.SN_INSTANCE }}
+          service-now-table: ${{ secrets.SN_TABLE }}
+          service-now-system-id: ${{ secrets.SN_SYS_ID }}
+          service-now-username: ${{ secrets.SN_USERNAME }}
+          service-now-password: ${{ secrets.SN_PASSWORD }}
+        env:
+          VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+
+      - name: 🚀 Deploy Cloud Function
+        uses: google-github-actions/deploy-cloud-functions@v2
+        with:
+          name: send-email-service
+          runtime: nodejs20
+          source_dir: function
+          entry_point: sendgrid
+          timeout: 10
+          max_instances: 2
+          min_instances: 0
+          memory_mb: 128
+          secret_environment_variables: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account_email: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
