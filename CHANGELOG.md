@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.17-3](https://github.com/agrc/chalkdust/compare/v2.1.17-2...v2.1.17-3) (2024-10-02)
+
+
+### Bug Fixes
+
+* split website and service to be parallel and correct memory syntax ([c68b593](https://github.com/agrc/chalkdust/commit/c68b593c9ab4458d9fe8a47af75e5b3da1115be1))
+
 ## [2.1.17-2](https://github.com/agrc/chalkdust/compare/v2.1.17-1...v2.1.17-2) (2024-10-02)
 
 
