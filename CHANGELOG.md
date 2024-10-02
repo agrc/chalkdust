@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.17-5](https://github.com/agrc/chalkdust/compare/v2.1.17-4...v2.1.17-5) (2024-10-02)
+
+
+### Bug Fixes
+
+* correct ci parameter inputs ([d31ba55](https://github.com/agrc/chalkdust/commit/d31ba55b9eed9b6653601e19535909f488c2229b))
+
 ## [2.1.17-4](https://github.com/agrc/chalkdust/compare/v2.1.17-3...v2.1.17-4) (2024-10-02)
 
 
