@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.17-2](https://github.com/agrc/chalkdust/compare/v2.1.17-1...v2.1.17-2) (2024-10-02)
+
+
+### Bug Fixes
+
+* update ci to publish function in dev ([dd426d9](https://github.com/agrc/chalkdust/commit/dd426d9363c20232d07d6d7b19b6189547c05232))
+
 ## [2.1.17-1](https://github.com/agrc/chalkdust/compare/v2.1.17-0...v2.1.17-1) (2024-10-02)
 
 
