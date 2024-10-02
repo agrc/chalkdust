@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.17-1](https://github.com/agrc/chalkdust/compare/v2.1.17-0...v2.1.17-1) (2024-10-02)
+
+
+### Bug Fixes
+
+* correct ci permissions for dev and prod deployments ([88c5ef3](https://github.com/agrc/chalkdust/commit/88c5ef3bf60937ebcaa0eff84ee9f111598ebca0))
+
 ## [2.1.17-0](https://github.com/agrc/chalkdust/compare/v2.1.15...v2.1.17-0) (2024-10-02)
 
 
