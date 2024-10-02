@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.17](https://github.com/agrc/chalkdust/compare/v2.1.16...v2.1.17) (2024-10-02)
+
+
+### Bug Fixes
+
+* fy25 q2 updates ([dd276ce](https://github.com/agrc/chalkdust/commit/dd276ce00d92b1b8edf81744c44f38da5754ff60))
+
 ## [2.1.17-5](https://github.com/agrc/chalkdust/compare/v2.1.17-4...v2.1.17-5) (2024-10-02)
 
 
