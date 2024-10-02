@@ -59,15 +59,16 @@ jobs:
           VITE_FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
 
       - name: 🚀 Deploy Cloud Function
-        uses: google-github-actions/deploy-cloud-functions@v2
+        uses: google-github-actions/deploy-cloud-functions@v3
+        timeout-minutes: 10
         with:
           name: send-email-service
           runtime: nodejs20
           source_dir: function
           entry_point: sendgrid
-          timeout: 10
-          max_instances: 2
-          min_instances: 0
-          memory_mb: 128
-          secret_environment_variables: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
-          service_account_email: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
+          service_timeout: 30s
+          max_instance_count: 2
+          min_instance_count: 0
+          memory: 128Mb
+          secrets: 'SENDGRID_API_KEY=projects/${{ secrets.PROJECT_ID }}/secrets/sendgrid'
+          service_account: function-sa@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com
