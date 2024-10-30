@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.19](https://github.com/agrc/chalkdust/compare/v2.1.18...v2.1.19) (2024-10-30)
+
+
+### Bug Fixes
+
+* replace greg with laura ([704b9f9](https://github.com/agrc/chalkdust/commit/704b9f9540040710d4a216a829d717e37b4bc266))
+
+
+### Dependencies
+
+* bump the npm_and_yarn group with 2 updates ([1b9e811](https://github.com/agrc/chalkdust/commit/1b9e811c0cd287d21a86fa85e11dbeec0dcfb1b5))
+
 ## [2.1.18](https://github.com/agrc/chalkdust/compare/v2.1.17...v2.1.18) (2024-10-02)
 
 
