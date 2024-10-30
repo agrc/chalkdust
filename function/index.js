@@ -18,8 +18,8 @@ const emails = [
   { id: 5, email: 'lault@utah.gov' },
   { id: 6, email: 'sfernandez@utah.gov' },
   { id: 7, email: 'zbeck@utah.gov' },
-  { id: 8, email: 'agrc@utah.gov' },
-  { id: 12, email: 'gbunce@utah.gov' },
+  { id: 8, email: 'ugrc@utah.gov' },
+  { id: 12, email: 'lault@utah.gov' },
 ];
 
 export const schema = yup.object().shape({
