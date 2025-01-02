@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.1.20](https://github.com/agrc/chalkdust/compare/v2.1.19...v2.1.20) (2025-01-02)
+
+
+### Dependencies
+
+* bump nanoid from 3.3.7 to 3.3.8 in the npm_and_yarn group ([58aad79](https://github.com/agrc/chalkdust/commit/58aad799fbab87ca3e7f8f9f745974ce64104518))
+* bump the major-app-dependencies group across 1 directory with 4 updates ([1f2067e](https://github.com/agrc/chalkdust/commit/1f2067ee436f730d5d36b9e16beafd2537914692))
+* bump the safe-app-dependencies group with 18 updates ([5e0344f](https://github.com/agrc/chalkdust/commit/5e0344f1e3df6420c4d921511349153605b1912e))
+* bump the safe-function-dependencies group ([829d8de](https://github.com/agrc/chalkdust/commit/829d8de955fe95eaa806b29f6f7a27c724f2bc9b))
+* bump yup in /function in the safe-function-dependencies group ([fb62313](https://github.com/agrc/chalkdust/commit/fb623138d914e6d5a1a6d96aca38f5931f6d849e))
+
 ## [2.1.19](https://github.com/agrc/chalkdust/compare/v2.1.18...v2.1.19) (2024-10-30)
 
 
