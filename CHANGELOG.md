@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.21](https://github.com/agrc/chalkdust/compare/v2.1.20...v2.1.21) (2025-02-03)
+
+
+### Dependencies
+
+* bump the safe-app-dependencies group with 8 updates ([8d5867b](https://github.com/agrc/chalkdust/commit/8d5867bd869730cb24cb4ff5b46c69af2ef2d4e6))
+
 ## [2.1.20](https://github.com/agrc/chalkdust/compare/v2.1.19...v2.1.20) (2025-01-02)
 
 
