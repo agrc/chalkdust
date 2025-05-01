@@ -10,7 +10,7 @@
   "author": "steveoh",
   "license": "MIT",
   "dependencies": {
-    "@sendgrid/client": "^8.1.4",
+    "@sendgrid/client": "^8.1.5",
     "query-string": "^9.1.1",
     "yup": "^1.6.1"
   },
