@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.21](https://github.com/agrc/chalkdust/compare/v2.1.20...v2.1.21) (2025-05-13)
+
+
+### Dependencies
+
+* **api:** fy25q4 package updates ([53225f2](https://github.com/agrc/chalkdust/commit/53225f2dfc448f7606d83c9a9601c1681a90adcb))
+* bump @sendgrid/client from 8.1.4 to 8.1.5 in /function in the safe-function-dependencies group ([#206](https://github.com/agrc/chalkdust/issues/206)) ([232671f](https://github.com/agrc/chalkdust/commit/232671fbd52db5873e60732b37d5665468637dd1))
+* bump the npm_and_yarn group with 2 updates ([f7c0a60](https://github.com/agrc/chalkdust/commit/f7c0a6022e26b9ad274b18c3a260874c0e67d442))
+* bump the safe-app-dependencies group with 8 updates ([8d5867b](https://github.com/agrc/chalkdust/commit/8d5867bd869730cb24cb4ff5b46c69af2ef2d4e6))
+* **dev:** bump firebase-tools ([58af079](https://github.com/agrc/chalkdust/commit/58af0793e1c0a8930eb22675698c962db5cc27b1))
+* fy25q4 package updates ([912c2df](https://github.com/agrc/chalkdust/commit/912c2dfc7288e8a340963d4feab72f0c19aa1156))
+
 ## [2.1.20](https://github.com/agrc/chalkdust/compare/v2.1.19...v2.1.20) (2025-01-02)
 
 
