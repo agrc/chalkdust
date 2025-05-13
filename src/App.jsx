@@ -20,7 +20,7 @@ ErrorFallback.propTypes = {
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <div className="w-screen h-screen">
+      <div className="h-screen w-screen">
         <Header title="Chalkdust Redline Viewer" version={version ?? '1.0.0'} />
         <ErrorBoundary FallbackComponent={ErrorFallback}>
           <MapView />

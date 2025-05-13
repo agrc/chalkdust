@@ -1,5 +1,5 @@
-import proj4 from 'proj4';
 import Point from '@arcgis/core/geometry/Point';
+import proj4 from 'proj4';
 
 // wkt26912: String
 //      The well known text for utm zone 12 N NAD83 for use with proj4

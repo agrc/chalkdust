@@ -57,7 +57,7 @@ const ReactMapView = () => {
             scale: 6000,
             targetGeometry: redline,
           }),
-          { duration: 1500, easing: 'ease-in-out' }
+          { duration: 1500, easing: 'ease-in-out' },
         );
 
         window.history.pushState({}, '', new URL(window.location.origin));
@@ -74,7 +74,7 @@ const ReactMapView = () => {
     };
   }, []);
 
-  return <div ref={mapDiv} className="w-full h-full border-t border-gray-300"></div>;
+  return <div ref={mapDiv} className="h-full w-full border-t border-gray-300"></div>;
 };
 
 export default ReactMapView;

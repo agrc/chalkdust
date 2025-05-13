@@ -1,8 +1,8 @@
 import '@arcgis/core/assets/esri/themes/light/main.css';
+import { getAnalytics } from 'firebase/analytics';
+import { initializeApp } from 'firebase/app';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import App from './App.jsx';
 import './styles/tailwind.css';
 
