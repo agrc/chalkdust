@@ -12,7 +12,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@arcgis/core": "^4.33.9",
+    "@arcgis/core": "^4.33.10",
     "@sendgrid/client": "^8.1.5",
     "@tailwindcss/vite": "^4.1.11",
     "@ugrc/eslint-config": "^1.2.3",
