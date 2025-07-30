@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.22-0](https://github.com/agrc/chalkdust/compare/v2.1.21...v2.1.22-0) (2025-07-30)
+
+
+### Bug Fixes
+
+* update to node 22 runtime ([23e7de0](https://github.com/agrc/chalkdust/commit/23e7de0c88085238f843e93b0891e8c23f6a66b7))
+
+
+### Dependencies
+
+* audit fix ([5559436](https://github.com/agrc/chalkdust/commit/5559436408d258d86229bde130ed209d4894793d))
+* bump @arcgis/core in the safe-app-dependencies group ([0aa65b9](https://github.com/agrc/chalkdust/commit/0aa65b90d0137969de5460bac7edd42dba19ffc2))
+* bump form-data in /function in the npm_and_yarn group ([cf7db5d](https://github.com/agrc/chalkdust/commit/cf7db5dca78912c5a6eaf581c70cc8f361701389))
+* bump the npm_and_yarn group with 3 updates ([b0b1f5d](https://github.com/agrc/chalkdust/commit/b0b1f5d225652d87cae8800e8683b07c87c7eb31))
+* bump the safe-app-dependencies group across 1 directory with 13 updates ([c30e5f8](https://github.com/agrc/chalkdust/commit/c30e5f8aceb70e7f110d27ce1688a7c60f9c4741))
+* bump the safe-function-dependencies group across 1 directory with 2 updates ([17e0a46](https://github.com/agrc/chalkdust/commit/17e0a4631be9c07cd9eda3f2a1b6f5047dcf1f52))
+
 ## [2.1.21](https://github.com/agrc/chalkdust/compare/v2.1.20...v2.1.21) (2025-05-13)
 
 
