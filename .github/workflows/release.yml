@@ -60,7 +60,7 @@ jobs:
         timeout-minutes: 10
         with:
           name: send-email-service
-          runtime: nodejs20
+          runtime: nodejs22
           source_dir: function
           entry_point: sendgrid
           service_timeout: 30s
@@ -121,7 +121,7 @@ jobs:
         timeout-minutes: 10
         with:
           name: send-email-service
-          runtime: nodejs20
+          runtime: nodejs22
           source_dir: function
           entry_point: sendgrid
           service_timeout: 30s
